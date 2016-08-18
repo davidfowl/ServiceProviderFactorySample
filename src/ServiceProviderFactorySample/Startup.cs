@@ -9,7 +9,7 @@ namespace ServiceProviderFactorySample
 {
     public class Startup
     {
-        public void ConfigureServics(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             // Add services here that have extension methods on IServiceCollection
         }
