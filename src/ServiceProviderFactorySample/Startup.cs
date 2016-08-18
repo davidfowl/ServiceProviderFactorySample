@@ -1,8 +1,8 @@
 ﻿using System;
-using Autofac;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using StructureMap;
+using StructureMap.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ServiceProviderFactorySample
@@ -14,10 +14,12 @@ namespace ServiceProviderFactorySample
             // Add services here that have extension methods on IServiceCollection
         }
 
-        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        public void ConfigureContainer(IContainer container)
         {
-            // Add services using your custom container here. In this case autofac
-            containerBuilder.RegisterType<Foo>().AsImplementedInterfaces().SingleInstance();
+            container.Configure(config =>
+            {
+                config.For<IFoo>().Use<Foo>().SetLifecycleTo<SingletonLifecycle>();
+            });
         }
 
         public void Configure(IApplicationBuilder app, Lazy<IFoo> foo)
