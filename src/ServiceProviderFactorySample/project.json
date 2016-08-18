@@ -6,7 +6,8 @@
     },
     "Microsoft.AspNetCore.Server.IISIntegration": "1.1.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.1.0-*",
-    "Autofac.Extensions.DependencyInjection": "4.0.0"
+    "Autofac.Extensions.DependencyInjection": "4.0.0",
+    "StructureMap.Microsoft.DependencyInjection": "1.0.1"
   },
 
   "tools": {
