@@ -14,11 +14,15 @@ namespace ServiceProviderFactorySample
             // Add services here that have extension methods on IServiceCollection
         }
 
-        public void ConfigureContainer(IContainer container)
+        public void ConfigureContainer(Registry config)
         {
-            container.Configure(config =>
-            {
-                config.For<IFoo>().Use<Foo>().SetLifecycleTo<SingletonLifecycle>();
+            // Get rid of the nested closure for the user
+            config.ForSingletonOf<IFoo>().Use<Foo>();
+            
+            // Use StructureMap's own type scanning functionality
+            config.Scan(_ => {
+                _.TheCallingAssembly();
+                _.WithDefaultConventions();
             });
         }
 
