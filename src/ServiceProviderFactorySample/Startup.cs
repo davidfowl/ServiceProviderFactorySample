@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using StructureMap;
 using StructureMap.Pipeline;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace ServiceProviderFactorySample
 {
